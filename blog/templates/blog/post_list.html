@@ -7,7 +7,7 @@
         body {
             font-family: "Helvetica Neue", Helvetica, sans-serif;
             margin-top: 30px;
-            color: dodgerblue;
+            color: #747474;
         }
          .title{
              width: 80%;
@@ -21,11 +21,26 @@
         h1 {
             font-size: 5em;
         }
+        #posts {
+            margin-left: 10%;
+        }
+        .post {
+            margin-bottom: 60px;
+        }
     </style>
 </head>
 <body>
     <div class="title" align="center">
         <h1><a href="#">MKT Blog</a></h1>
+    </div>
+    <div id="posts">
+        {% for post in posts %}
+            <div class="post">
+                <p class="published-date">{{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p class="text">{{ post.text|linebreaks }}</p>
+            </div>
+        {% endfor %}
     </div>
 </body>
 </html>
